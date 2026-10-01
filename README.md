@@ -81,13 +81,6 @@ MMSI identifiers as text, rather than measurements.
 6. Check that all IMOs are unique and existing nonmissing values are preserved, then
    export the final table as `data/vessels.csv`.
 
-The GFW step added 109 values across 80 vessels, mainly gross tonnage and length.
-It did not query the whole dataset. No Equasis records are included.
-
-This repository currently distributes the final CSV. The build scripts, cached
-responses, and detailed audit tables remain in the originating research project
-under `code/build/10-build-imo/`; they are not yet included here.
-
 ## References
 
 - EU MRV vessel reports (2018–2025) and the INTERTANKO member fleet table.
