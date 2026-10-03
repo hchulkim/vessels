@@ -209,22 +209,6 @@ MMSI identifiers as text, rather than measurements.
 | `conflict_latest_*`, `local_conflict_*` | Indicators of conflicting source values. |
 | `n_observations`, `n_sources`, `n_local_observations`, `in_*` | Counts and indicators used during construction. |
 
-## Data pipeline
-
-1. Collect company directories and vessel records from EU MRV and the INTERTANKO
-   member fleet. Clean company names and keep company IDs separate from vessel IMOs.
-2. Combine vessel records by checksum-valid IMO. For dated baseline records, use the
-   latest nonmissing value; leave conflicting values at the same date unresolved.
-3. Add vessels from MarineVessels and IMO-Vessel-Codes. Keep existing values and fill
-   missing fields only when the added records agree. This produces 68,324 unique IMOs.
-4. Fill further gaps from Wikidata and existing NOAA AIS downloads. Preserve source
-   attribution and keep conflicting values unresolved.
-5. Add GFW information using an existing partial snapshot and a 40-vessel API pilot.
-   Match by IMO first. MMSI-only links require a matching name or callsign and
-   overlapping dated evidence; reject MMSIs associated with multiple IMOs.
-6. Check that all IMOs are unique and existing nonmissing values are preserved, then
-   export the final table as `data/vessels.csv`.
-
 ## References
 
 - EU MRV vessel reports (2018–2025) and the INTERTANKO member fleet table.
